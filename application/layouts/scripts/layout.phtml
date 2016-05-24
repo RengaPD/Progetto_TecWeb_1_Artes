@@ -1,0 +1,73 @@
+<?php
+$this->headMeta()->appendHttpEquiv('Content-Type', 'text/html;charset=utf-8');
+$this->headTitle()->setSeparator(' - ');
+$this->headTitle('Artes'); 
+echo $this->doctype(); ?>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <?php echo $this->headMeta(); ?>
+    <?php echo $this->headTitle(); ?>
+	<?php echo $this->headLink()->prependStylesheet($this->baseUrl().'/css/style.css'); ?>
+</head>
+<body id="top">
+<div class="wrapper col1">
+  <div id="header">
+    <div id="logo">
+      <h1><a href="">Logo ARTES</a></h1>
+      <p>Il tuo personale sistema d'evacuazione.</p>
+    </div>
+    <div id="newsletter">
+   
+      <form action="#" method="post">
+        <fieldset>
+        	<p>LOGIN</p>
+          <legend>Registrati</legend>
+          <input type="text" value="User&hellip;" onfocus="this.value=(this.value=='User&hellip;')? '' : this.value ;" />
+          <input type="text" value="Password&hellip;" onfocus="this.value=(this.value=='Password&hellip;')? '' : this.value ;" />
+          <input type="submit" name="news_go" id="news_go" value="Entra" />
+        </fieldset>
+         <p><a href="#">&raquo; password dimenticata?</a> | <a href="#">Crea il tuo account &raquo;</a></p>
+      </form>
+    </div>
+    <br class="clear" />
+  </div>
+</div>
+<div class="wrapper col2">
+  <div id="topbar">
+    <div id="topnav">
+    	<?= $this->render('_navorizzontale.phtml')?>
+    </div>
+    <br class="clear"/>
+ </div>
+</div>
+<!--questa parte è l'unica che cambia-->
+<div class="wrapper col5">
+  <div id="container">
+		<?php echo $this->layout()->content; ?>
+    <br class="clear" />
+  </div>
+</div>
+<!-- -->
+<div class="wrapper col6">
+  <div id="footer">
+    <div class="footbox">
+      <h2>Sede Legale</h2>
+      <ul>
+        <li><a href="#">Via Martiri delle foibe 78,</a></li>
+        <li><a href="#">Civitanova Marche, MC.</a></li>
+        <br>
+        <li><a href="#">Tel: +39 0733 813556</a></li>
+        <li><a href="mailto:sedelegale@artee.com">eMail: sedelegale@artee.com </a></li>
+      </ul>
+    </div>
+    <br class="clear" />
+  </div>
+</div>
+<div class="wrapper col7">
+  <div id="copyright">
+    <p class="fl_center">Copyright &copy; 2016 - All Rights Reserved - <a href="#">https://www.ARTEE.it</a></p>
+    <br class="clear" />
+  </div>
+</div>
+</body>
+</html>

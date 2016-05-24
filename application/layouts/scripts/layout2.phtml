@@ -1,0 +1,85 @@
+<?php
+$this->headMeta()->appendHttpEquiv('Content-Type', 'text/html;charset=utf-8');
+$this->headTitle()->setSeparator(' - ');
+$this->headTitle('Artes'); 
+echo $this->doctype(); ?>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <?php echo $this->headMeta(); ?>
+    <?php echo $this->headTitle(); ?>
+	<?php echo $this->headLink()->prependStylesheet($this->baseUrl().'/css/style.css'); ?>
+</head>
+<body>
+
+<div id="wrap">
+
+<div id="header">
+<h1><a href="#">Artes</a></h1>
+<h2>Il tuo personale sistema d'evacuazione</h2>
+</div>
+
+<div id="menu">
+<?= $this->render('_navorizzontale.phtml')?>
+</div>
+
+<div id="content"> 
+<div class="left"> 
+<?php echo $this->layout()->content; ?>
+</div>
+
+<div class="right"> 
+
+<div class="adleft">
+<br /><br />
+125x125<br />
+Ads
+</div>
+<div class="adright">
+<br /><br />
+125x125<br />
+Ads
+</div>
+
+<div style="clear: both;"> </div>
+
+<h2>Categories :</h2>
+<ul>
+<li><a href="#">World Politics</a></li> 
+<li><a href="#">Europe Sport</a></li> 
+<li><a href="#">Networking</a></li> 
+<li><a href="#">Nature - Africa</a></li>
+<li><a href="#">SuperCool</a></li> 
+<li><a href="#">Last Category</a></li>
+</ul>
+
+<h2>Archives</h2>
+<ul>
+<li><a href="#">January 2007</a></li> 
+<li><a href="#">February 2007</a></li> 
+<li><a href="#">March 2007</a></li> 
+<li><a href="#">April 2007</a></li>
+<li><a href="#">May 2007</a></li> 
+<li><a href="#">June 2007</a></li> 
+<li><a href="#">July 2007</a></li> 
+<li><a href="#">August 2007</a></li> 
+<li><a href="#">September 2007</a></li>
+<li><a href="#">October 2007</a></li>
+<li><a href="#">November 2007</a></li>
+<li><a href="#">December 2007</a></li>
+</ul>
+
+</div>
+
+<div style="clear: both;"> </div>
+
+</div>
+
+<div id="footer">
+<h2>Sede Legale</h2>
+Via Martiri della Foibe<br>
+Civitanova Marche<br>
+</div>
+
+</body>
+</html>
+
