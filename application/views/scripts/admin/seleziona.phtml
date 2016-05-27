@@ -1,0 +1,29 @@
+<p>Utilizza questa form per modificare le informazioni utente nel database</p>
+
+<table >
+    <tr>
+        <th>Seleziona</th>
+        <th>Nome</th>
+        <th>Cognome</th>
+        <th>Edificio</th>
+        <th>Email</th>
+        <th>Posizione</th>
+        <th>Password</th>
+    </tr>
+    <?php foreach($this->risultato as $utenti)
+    {
+        echo "<tr>
+          <td>bla</td>
+          <td>" . $utenti['nome'] . "</td>
+          <td>" . $utenti['cognome'] . "</td>
+          <td>" . $utenti['edificio'] . "</td>
+          <td>" . $utenti['email'] . "</td>
+          <td>" . $utenti['posizione'] . "</td>
+          <td>" . $utenti['password'] . "</td>
+        </tr>";
+    }
+    ?>
+</table>
+<form action="<?php echo $this->url( array('controller' => 'admin', 'action' => 'modificautente','id'=>"$id"), 'default', false) ?>" method="post">
+<?php echo $this->bottonemod ?>
+</form>

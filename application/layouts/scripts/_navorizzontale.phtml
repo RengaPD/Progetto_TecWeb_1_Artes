@@ -1,10 +1,10 @@
-<ul>
+<ul class="nav nav-collapse">
 	<li><a href="<?= $this->url(array(
 					'controller'=>'public',
 					'action'=>'index',),
 					'default',true);
 					?>"
-			title="Home">Home</a> 
+			title="Home"class="active"><i class="icon-user"></i>Home</a>
 	</li>
 	<li><a href="<?= $this->url(array(
 					'controller'=>'public',
@@ -12,5 +12,41 @@
 					'staticPage'=>'chisiamo'),
 					'default',true);
 					?>"
-			title="Info su di noi">Chi siamo</a></li>
+			title="Info su di noi"><i class="icon-user"></i>Chi siamo</a></li>
+	<li><a href="<?= $this->url(array(
+					'controller'=>'public',
+					'action'=>'viewstatic',
+					'staticPage'=>'servizi'),
+					'default',true);
+					?>"
+			title="Servizi"><i class="icon-user"></i>Servizi</a></li>
+	<li><a href="<?= $this->url(array(
+					'controller'=>'public',
+					'action'=>'viewstatic',
+					'staticPage'=>'faq'),
+					'default',true);
+					?>"
+			title="Domande frequenti"><i class="icon-user"></i>FAQ</a></li>
+	<li><a href="<?= $this->url(array(
+					'controller'=>'admin',
+					'action'=>'index'),
+					'default',true);
+					?>"
+			title="Gestisci sito"><i class="icon-user"></i>Amministrazione</a></li>
+	<li><a href="<?= $this->url(array(
+			'controller'=>'staff',
+			'action'=>'index'),
+			'default',true);
+		?>"
+		   title="Staff"><i class="icon-user"></i>Staff</a></li>
+	<li><a href="#myModal" role="button" data-toggle="modal"
+		   title="Login"><i class="icon-user"></i>Login</a></li>
+	<li><a href="<?= $this->url(array(
+			'controller'=>'admin',
+			'action'=>'index'),
+			'default',true);
+		?>"
+		   title="Registrati"><i class="icon-user"></i>Registrati</a></li>
+			
+	
 </ul>

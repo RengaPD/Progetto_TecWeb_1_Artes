@@ -14,6 +14,13 @@ protected function _initLogging()
         $this->_logger = $logger;
     		$this->_logger->info('Bootstrap ' . __METHOD__);
     }
+protected function _initDefaultModuleAutoloader()
+    {
+    	$loader = Zend_Loader_Autoloader::getInstance();
+		$loader->registerNamespace('App_');
+        $this->getResourceLoader()
+             ->addResourceType('modelResource','models/resources','Resource');  
+  	}
 
 
 }

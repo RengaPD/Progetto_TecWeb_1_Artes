@@ -1,7 +1,24 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: renga
- * Date: 20/05/16
- * Time: 15.00
- */
+
+class Application_Model_Utenti extends App_Model_Abstract
+{ 
+
+	public function __construct()
+    {
+		
+    }
+    
+	public function segnalaEvento
+	{
+		
+	}
+	public function aggiungiPosizione
+	{
+		
+	}
+	public function resettaPosizione
+	{
+		
+	}
+	
+}
