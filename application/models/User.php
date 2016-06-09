@@ -1,6 +1,6 @@
 <?php
 
-class Application_Model_Utenti extends App_Model_Abstract
+class Application_Model_User extends App_Model_Abstract
 { 
 
 	public function __construct()
@@ -8,15 +8,16 @@ class Application_Model_Utenti extends App_Model_Abstract
 		
     }
     
-	public function segnalaEvento
+	public function segnalaEvento()
+	{
+		return $this->getResource('Eventi')->insertEventi($info);
+
+	}
+	public function aggiungiPosizione()
 	{
 		
 	}
-	public function aggiungiPosizione
-	{
-		
-	}
-	public function resettaPosizione
+	public function resettaPosizione()
 	{
 		
 	}

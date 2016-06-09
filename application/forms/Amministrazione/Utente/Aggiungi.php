@@ -11,13 +11,13 @@ class Application_Form_Amministrazione_Utente_Aggiungi extends Zend_Form
 		$this->setAction('');
 		$this->setAttrib('enctype', 'multipart/form-data');
 
-		$this->addElement('text', 'Nome', array(
+		$this->addElement('text', 'nome', array(
             'label' => 'Nome',
             'filters' => array('StringTrim'),
             'required' => true,
             'validators' => array(array('StringLength',true, array(1,25))),
 		));
-		$this->addElement('text', 'Cognome', array(
+		$this->addElement('text', 'cognome', array(
             'label' => 'Cognome',
             'filters' => array('StringTrim'),
             'required' => true,
@@ -55,5 +55,6 @@ class Application_Form_Amministrazione_Utente_Aggiungi extends Zend_Form
             'label' => 'Aggiungi Prodotto',
 		));
 	}
+	
 }
 ?>

@@ -8,17 +8,30 @@ class Application_Model_Staff extends App_Model_Abstract
 		
     }
     
-	public function getEvents()
+	public function visualizzaEventi()
 	{
-		
+		return $this->getResource('Eventi')->getEventi();
+
 	}
-	public function addEvents()
+	public function visualizzaEdifici()
 	{
-		
+		return $this->getResource('Edifici')->getEdifici();
+
+	}
+	public function inserisciEvento($info)
+	{
+		return $this->getResource('Eventi')->insertEventi($info);
+
+
 	}
 	public function deleteEvents()
 	{
 		
+	}
+	public function posizioniDaEdificio($info)
+	{
+		return $this->getResource('Posizioni')->getpositionsbyEd($info);
+
 	}
 	
 }

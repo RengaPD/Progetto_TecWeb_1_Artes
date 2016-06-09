@@ -1,0 +1,34 @@
+<p>Utilizza questa form per inserire un nuovo evento nel database</p>
+<?php $this->headScript()
+    ->appendFile('https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js')
+    ->captureStart() ?>
+<script>$(document).ready(function(){
+
+$('#edificio').on('change',function(){
+
+
+
+$.ajax({
+type: 'POST',
+url: '<?php echo $this->url(array('controller' => 'staff','action' => 'updateajax'));?>',
+data: "edificio=" + $('#edificio').val(),
+dataType: 'json',
+success: setPosizioni
+});
+
+
+})
+
+function setPosizioni(data)
+{
+    $.each(data, function(key,val){
+    $('dd#posizione-element').find("select").append('<option value="'+ val +'">'+ val + '</option>')
+
+    })
+}
+
+
+})
+    </script>
+
+<?php echo $this->form ?>

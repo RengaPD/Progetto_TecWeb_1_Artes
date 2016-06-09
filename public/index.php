@@ -8,6 +8,11 @@ defined('APPLICATION_PATH')
 defined('APPLICATION_ENV')
     || define('APPLICATION_ENV', (getenv('APPLICATION_ENV') ? getenv('APPLICATION_ENV') : 'development'));
 
+defined('PUBLIC_PATH')
+|| define('PUBLIC_PATH', realpath(dirname(__FILE__) . '/../public'));
+defined('VIEW_PATH')
+|| define('VIEW_PATH', realpath(dirname(__FILE__) . '/../application/views/scripts/public'));
+
 // Ensure library/ is on include_path
 set_include_path(implode(PATH_SEPARATOR, array(
     realpath(APPLICATION_PATH . '/../library'),

@@ -1,0 +1,42 @@
+<p>Utilizza questa form per Visualizzare gli eventi in corso</p>
+
+<table style="background-color: #c43c35; padding: 10px">
+    <tr style="background-color: #f8b9b7 ">
+        <th>Id</th>
+        <th>Edificio</th>
+        <th>Posizione</th>
+        <th>Tipo</th>
+        <th>Descrizione</th>
+        <th>Data e Ora</th>
+        <th>Assegna Planimetria</th>
+        <th>Elimina</th>
+    </tr>
+    <?php foreach($this->risultato as $utenti) :?>
+
+        <?php $id=$utenti['id']; ?>
+        <?php echo "<tr>
+          <td>" . $utenti['id'] . "</td>
+          <td>" . $utenti['edificio'] . "</td>
+          <td>" . $utenti['posizione'] . "</td>
+          <td>" . $utenti['tipo'] . "</td>
+          <td>" . $utenti['descrizione'] . "</td>
+          <td>" . $utenti['timestamp'] . "</td>
+          <td>"; ?><a href="<?= $this->url(array(
+            'controller'=>'staff',
+            'action'=>'assegnaplan',
+            'id'=>"$id"),
+            'default',true);
+        ?>"><?php echo $this->bottoneass ?></a>
+        <?php echo"</td>
+<td>"; ?><a href="<?= $this->url(array(
+            'controller'=>'staff',
+            'action'=>'cancellaevento',
+            'id'=>"$id"),
+            'default',true);
+        ?>"><?php echo $this->bottonedel ?></a>
+        <?php echo"</td>
+        </tr>"; ?>
+
+    <?php endforeach ?>
+</table>
+

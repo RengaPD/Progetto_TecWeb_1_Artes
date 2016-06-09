@@ -22,12 +22,45 @@ class StaffController extends Zend_Controller_Action
         
     }
 
-    public function segnalaAction()
+    public function updateajaxAction()
     {
+        $this->_helper->getHelper('layout')->disableLayout();
+        $this->_helper->viewRenderer->setNoRender();
+        $posizioni = $this->_staffModel->retrieveposition($_POST['edificio'])->toArray();
+        $response = $this->_helper->json($posizioni);
+        if ($response != null){
+            $this->getResponse()->setHeader('Content-type','application/json')->setBody($response);
+        }
+    }
+    public function visualizzaeventiAction()
+    {
+        $result = $this->_staffModel->visualizzaEventi()->toArray();
+        $this->view->assign('risultato', $result);
+        $bottoneass=new Zend_Form_Element_Submit('assegna');
+        $bottoneass->setLabel('Assegna Plan');
+        $bottonedel=new Zend_Form_Element_Submit('cancella');
+        $bottonedel->setLabel('Elimina');
+        $this->view->assign('bottoneass',$bottoneass);
+        $this->view->assign('bottonedel',$bottonedel);
 
-        $result = $this->_adminModel->visualizzaUtenti();
-
-
+    }
+    public function inseriscieventiAction()
+    {
+        $form = new Application_Form_Staff_Evento_Aggiungi();
+        if($this->getRequest()->isPost())
+        {
+            if($form->isValid($_POST))
+            {
+                $dati= $form->getValues();
+                echo 'Dati inseriti con successo';
+                $this->_staffModel->inserisciEvento($dati);
+            }
+            else
+            {
+                'Inserimento fallito';
+            }
+        }
+        $this->view->assign('form', $form);
     }
 
 

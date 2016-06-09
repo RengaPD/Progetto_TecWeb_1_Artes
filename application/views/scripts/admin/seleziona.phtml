@@ -1,28 +1,45 @@
 <p>Utilizza questa form per modificare le informazioni utente nel database</p>
 
-<table >
-    <tr>
-        <th>Seleziona</th>
+<table style="background-color: #c43c35; padding: 10px">
+    <tr style="background-color: #f8b9b7 ">
+        <th>Id</th>
         <th>Nome</th>
         <th>Cognome</th>
-        <th>Edificio</th>
         <th>Email</th>
         <th>Posizione</th>
+        <th>Edificio</th>
         <th>Password</th>
+        <th>Seleziona</th>
+        <th>Elimina</th>
     </tr>
-    <?php foreach($this->risultato as $utenti)
-    {
-        echo "<tr>
-          <td>bla</td>
+    <?php foreach($this->risultato as $utenti) :?>
+
+        <?php $id=$utenti['id']; ?>
+        <?php echo "<tr>
+          <td>" . $utenti['id'] . "</td>
           <td>" . $utenti['nome'] . "</td>
           <td>" . $utenti['cognome'] . "</td>
-          <td>" . $utenti['edificio'] . "</td>
           <td>" . $utenti['email'] . "</td>
           <td>" . $utenti['posizione'] . "</td>
+          <td>" . $utenti['edificio'] . "</td>
           <td>" . $utenti['password'] . "</td>
-        </tr>";
-    }
-    ?>
+          <td>"; ?><a href="<?= $this->url(array(
+            'controller'=>'admin',
+            'action'=>'modificautente',
+            'id'=>"$id"),
+            'default',true);
+        ?>"><?php echo $this->bottonemod ?></a>
+        <?php echo"</td>
+<td>"; ?><a href="<?= $this->url(array(
+            'controller'=>'admin',
+            'action'=>'cancellautente',
+            'id'=>"$id"),
+            'default',true);
+        ?>"><?php echo $this->bottonedel ?></a>
+        <?php echo"</td>
+        </tr>"; ?>
+
+    <?php endforeach ?>
 </table>
 <form action="<?php echo $this->url( array('controller' => 'admin', 'action' => 'modificautente','id'=>"$id"), 'default', false) ?>" method="post">
 <?php echo $this->bottonemod ?>

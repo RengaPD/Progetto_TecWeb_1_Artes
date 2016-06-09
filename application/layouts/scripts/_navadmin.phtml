@@ -11,11 +11,18 @@
 					'action'=>'seleziona',),
 					'default',true);
 					?>"
-			title="Modifica informazioni utente esistente">Modifica Utente</a> 
+			title="Modifica o cancella informazioni utente esistente">Modifica/Cancella Utente</a>
 	</li>
 	<li><a href="<?= $this->url(array(
 			'controller'=>'admin',
-			'action'=>'modificautente',),
+			'action'=>'inserisciplanimetrie',),
+			'default',true);
+		?>"
+		   title="Gestisci planimetrie">Inserisci Planimetrie</a>
+	</li>
+	<li><a href="<?= $this->url(array(
+			'controller'=>'admin',
+			'action'=>'modificaplanimetrie',),
 			'default',true);
 		?>"
 		   title="Gestisci planimetrie">Gestisci Planimetrie</a>

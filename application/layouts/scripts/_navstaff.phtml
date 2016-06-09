@@ -1,21 +1,21 @@
 <ul class="nav nav-collapse">
     <li><a href="<?= $this->url(array(
             'controller'=>'staff',
-            'action'=>'visualizzaeventi',),
+            'action'=>'inseriscieventi',),
             'default',true);
         ?>"
            title="Inserisci Evento">Inserisci Eventi</a>
     </li>
     <li><a href="<?= $this->url(array(
-            'controller'=>'admin',
-            'action'=>'modificautente',),
+            'controller'=>'staff',
+            'action'=>'visualizzaeventi',),
             'default',true);
         ?>"
            title="Eventi ">Eventi in corso</a>
     </li>
     <li><a href="<?= $this->url(array(
-            'controller'=>'admin',
-            'action'=>'modificautente',),
+            'controller'=>'staff',
+            'action'=>'assegnaplan',),
             'default',true);
         ?>"
            title="Gestisci planimetrie">Assegna Planimetrie</a>
