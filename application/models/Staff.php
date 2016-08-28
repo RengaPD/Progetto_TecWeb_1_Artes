@@ -33,5 +33,9 @@ class Application_Model_Staff extends App_Model_Abstract
 		return $this->getResource('Posizioni')->getpositionsbyEd($info);
 
 	}
-	
+	public function  edificiodaID($info)
+	{
+		return $this->getResource('Edifici')->getedificiobyId($info);
+
+	}
 }

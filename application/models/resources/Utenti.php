@@ -18,7 +18,13 @@ class Application_Resource_Utenti extends Zend_Db_Table_Abstract
     {
 
         $where = $this->getAdapter()->quoteInto('id = ?', $id);
-        $this->update($info, $where);
+        $this->update(array('nome'=>$info['nome'],
+            'cognome'=>$info['cognome'],
+            'email'=>$info['email'],
+            'edificio'=>$info['edificio'],
+            'posizione'=>$info['posizione'],
+            'password'=>$info['password'],
+            'ruolo'=>$info['ruolo']), $where);
     }
     public function showUtenti()
     {
@@ -47,8 +53,10 @@ class Application_Resource_Utenti extends Zend_Db_Table_Abstract
     }
     public function clearPosition($id)
     {
-        $where = $this->getAdapter()->quoteInto('Id = ?', $id);
+        $where = $this->getAdapter()->quoteInto('id = ?', $id);
         $this->update(array('posizione'=>'0'),$where);
     }
+
+
 }
 

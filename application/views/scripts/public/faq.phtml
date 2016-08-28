@@ -1,2 +1,7 @@
 <br><br><br><h1>FAQ</h1>
-Bla bla
+<?php foreach($this->risultato as $faq) :?>
+    <?php echo "<b><h2>".$faq['Domanda']."</h2></b>";
+    echo "<br><br>";
+    echo $faq['Risposta'];
+    echo "<br><br>"; ?>
+<?php endforeach; ?>

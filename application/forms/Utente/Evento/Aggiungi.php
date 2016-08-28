@@ -12,7 +12,7 @@ class Application_Form_Utente_Evento_Aggiungi extends Zend_Form
 		$this->setAttrib('enctype', 'multipart/form-data');
 
 		$edificio = array();
-		$edif = $this->_staffModel->visualizzaEdifici();
+		$edif = $this->_userModel->visualizzaEdifici();
 		foreach ($edif as $edi) {
 			$edificio[$edi -> id] = $edi->nome;
 		}
@@ -24,35 +24,34 @@ class Application_Form_Utente_Evento_Aggiungi extends Zend_Form
 		));
 
 		$this->addElement('select', 'posizione', array(
-			
+
 			'label' => 'Posizione',
 			'filters' => array('StringTrim'),
 			'required' => true,
 			'validators' => array(array('StringLength',true, array(1,25))),
 		));
 
-		
 		$this->addElement('text', 'tipo', array(
-            'label' => 'Tipo',
-            'filters' => array('StringTrim'),
-            'required' => true,
-            'validators' => array(array('StringLength',true, array(1,25))),
+			'label' => 'Tipo',
+			'filters' => array('StringTrim'),
+			'required' => true,
+			'validators' => array(array('StringLength',true, array(1,25))),
 		));
-		
-		
+
+
 		$this->addElement('text', 'descrizione', array(
-            'label' => 'Descrizione',
-            'filters' => array('StringTrim'),
-            'required' => false,
+			'label' => 'Descrizione',
+			'filters' => array('StringTrim'),
+			'required' => false,
 			'description' => 'Eventualmente lasciare vuoto',
 
 			'validators' => array(array('StringLength',true, array(1,25))),
 		));
 		$this->addElement('submit', 'add', array(
-            'label' => 'Aggiungi Prodotto',
+			'label' => 'Aggiungi Evento',
 		));
 
 	}
-	
+
 }
 ?>

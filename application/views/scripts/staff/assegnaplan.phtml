@@ -1,0 +1,39 @@
+<p>Utilizza questa form per modificare le informazioni utente nel database</p>
+
+<table style="background-color: #c43c35; padding: 10px">
+    <tr style="background-color: #f8b9b7 ">
+        <th>Id</th>
+        <th>Nome</th>
+        <th>Edificio</th>
+
+        <th>Seleziona</th>
+    </tr>
+    <?php foreach($this->risultato as $plan) :?>
+
+        <?php $id=$plan['id']; ?>
+        <?php echo "<tr>
+          <td>" . $plan['id'] . "</td>
+          <td>" . $plan['nome'] . "</td>
+          
+         <td>" . $plan['edificio'] . "</td>
+          <td>"; ?><a href="<?= $this->url(array(
+            'controller'=>'admin',
+            'action'=>'modificautente',
+            'id'=>"$id"),
+            'default',true);
+        ?>"><?php echo $this->bottonemod ?></a>
+        <?php echo"</td>
+<td>"; ?><a href="<?= $this->url(array(
+            'controller'=>'admin',
+            'action'=>'cancellautente',
+            'id'=>"$id"),
+            'default',true);
+        ?>"><?php echo $this->bottonedel ?></a>
+        <?php echo"</td>
+        </tr>"; ?>
+
+    <?php endforeach ?>
+</table>
+<form action="<?php echo $this->url( array('controller' => 'admin', 'action' => 'modificautente','id'=>"$id"), 'default', false) ?>" method="post">
+    <?php echo $this->bottonemod ?>
+</form>

@@ -1,10 +1,10 @@
 <?php
 
-class Application_Resource_Edifici extends Zend_Db_Table_Abstract
+class Application_Resource_Posizioni extends Zend_Db_Table_Abstract
 {
-    protected $_name = 'edifici';
+    protected $_name = 'posizioni';
     protected $_primary = 'id';
-    protected $_rowClass = 'Application_Resource_Edifici_Item';
+    protected $_rowClass = 'Application_Resource_Posizioni_Item';
 
     public function init()
     {
@@ -17,7 +17,7 @@ class Application_Resource_Edifici extends Zend_Db_Table_Abstract
 
     public function getpositionsbyEd($info)
     {
-        $select = $this->select('posizione')->where('edificio =?', (int)$info);
+        $select = $this->select('posizione')->where('edificio =?', $info);
         $res = $this->fetchAll($select);
         return $res;
     }

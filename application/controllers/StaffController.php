@@ -19,19 +19,36 @@ class StaffController extends Zend_Controller_Action
 
     public function assegnaplanAction()
     {
+
+        $posizione = $this->_getParam('posizione');
+        $result = $this->_staffModel->visualizzaPlanbypos()->toArray();
+        $this->view->assign('risultato', $result);
+        $bottone=new Zend_Form_Element_Submit('seleziona');
+        $bottone->setLabel('Assegna');
+        $this->view->assign('bottoneass',$bottone);
         
     }
+
 
     public function updateajaxAction()
     {
         $this->_helper->getHelper('layout')->disableLayout();
         $this->_helper->viewRenderer->setNoRender();
-        $posizioni = $this->_staffModel->retrieveposition($_POST['edificio'])->toArray();
-        $response = $this->_helper->json($posizioni);
-        if ($response != null){
-            $this->getResponse()->setHeader('Content-type','application/json')->setBody($response);
+        $edificio = $this->_staffModel->edificiodaID($_POST['edificio'])->toArray();
+        $edificino = $edificio[0];
+
+        $posizioni = $this->_staffModel->posizioniDaEdificio($edificino['nome']);
+
+        foreach ($posizioni as $posi) {
+            $posix[$posi->id] = $posi->posizione;
+        }
+
+        $response = $this->_helper->json($posix);
+        if ($response != null) {
+            $this->getResponse()->setHeader('Content-type', 'application/json')->setBody($response);
         }
     }
+
     public function visualizzaeventiAction()
     {
         $result = $this->_staffModel->visualizzaEventi()->toArray();

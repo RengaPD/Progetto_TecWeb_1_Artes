@@ -107,6 +107,24 @@ public function viewstaticAction () {
     	$page = $this->_getParam('staticPage'); //assegna a pagina il parametro 'static page'
     	$this->render($page); //carica pagina associata a page
     }
+	public function faqupdateAction()
+	{
+		$form=new Application_Form_Amministrazione_FAQ();
+		if($this->getRequest()->isPost())
+		{
+			if($form->isValid($_POST))
+			{
+				$dati= $form->getValues();
+				echo 'Dati inseriti con successo';
+				$this->_adminModel->gestiscifaq($dati);
+			}
+			else
+			{
+				echo 'Inserimento fallito';
+			}
+		}
+		$this->view->assign('form', $form);
+	}
 	
 }
 ?>

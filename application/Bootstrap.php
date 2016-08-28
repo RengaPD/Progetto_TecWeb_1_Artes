@@ -27,6 +27,16 @@ protected function _initFrontControllerPlugin()
     $front->registerPlugin(new App_Controller_Plugin_Acl());
 
 }
+    protected function _initDbParms()
+    {
+        $db = new Zend_Db_Adapter_Pdo_Mysql(array(
+            'host'     => 'tweb.dii.univpm.it',
+            'username' => 'grp_01',
+            'password' => 'gKfZwYCE',
+            'dbname'   => 'grp_01_db'
+        ));
+        Zend_Db_Table_Abstract::setDefaultAdapter($db);
+    }
 
 }
 

@@ -19,6 +19,25 @@ class UserController extends Zend_Controller_Action
     {
 
     }
+
+    public function updateajaxAction()
+    {
+        $this->_helper->getHelper('layout')->disableLayout();
+        $this->_helper->viewRenderer->setNoRender();
+        $edificio = $this->_userModel->edificiodaID($_POST['edificio'])->toArray();
+        $edificino = $edificio[0];
+
+        $posizioni = $this->_userModel->posizioniDaEdificio($edificino['nome']);
+
+        foreach ($posizioni as $posi) {
+            $posix[$posi->id] = $posi->posizione;
+        }
+
+        $response = $this->_helper->json($posix);
+        if ($response != null) {
+            $this->getResponse()->setHeader('Content-type', 'application/json')->setBody($response);
+        }
+    }
     public function logoutAction()
     {
         $this->_authService->clear();
@@ -26,7 +45,7 @@ class UserController extends Zend_Controller_Action
     }
     public function modificaprofiloAction()
     {
-        $a=$this->_authService->getIdentity()->Id;
+        $a=$this->_authService->getIdentity()->id;
         $form = new Application_Form_Utente_Modifica();
         $gigi=$this->_userModel->visualizzaUtentedaID($a)->toArray();
         $form->populate($gigi[0]);
@@ -36,7 +55,7 @@ class UserController extends Zend_Controller_Action
             {
                 $dati= $form->getValues();
                 echo 'Dati inseriti con successo';
-                $this->_userModel->modificaProfilo($dati,$a);
+                $this->_userModel->modificaUtente($dati,$a);
             }
             else
             {
@@ -70,7 +89,7 @@ class UserController extends Zend_Controller_Action
 
     public function inseriscieventiAction()
     {
-        $form = new Application_Form_User_Evento_Aggiungi();
+        $form = new Application_Form_Utente_Evento_Aggiungi();
         if($this->getRequest()->isPost())
         {
             if($form->isValid($_POST))
@@ -88,9 +107,12 @@ class UserController extends Zend_Controller_Action
     }
 
 
-    public function viewstaticAction () {
-        $page = $this->_getParam('staticPage'); //assegna a pagina il parametro 'static page'
-        $this->render($page); //carica pagina associata a page
+
+
+    public function resettaposizioneAction()
+    {
+        $a=$this->_authService->getIdentity()->id;
+        $this->_userModel->resettaPosizione($a);
     }
 
 }

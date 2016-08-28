@@ -51,6 +51,40 @@ echo $this->doctype(); ?>
             <p><a href="#myModal" role="button" data-toggle="modal"> <i class="icon-mail"></i> CONTATTACI</a></p>
         </div>
     </div>
+    <script src="<?php echo $this->baseUrl("js/jquery-1.10.1.min.js")?>"></script>
+    <script src="<?php echo $this->baseUrl("js/bootstrap.min.js")?>"></script>
+    <script>
+        $('#myModal').modal('hidden')
+    </script>
+    <script type="text/javascript">$(document).ready(function(){
+
+            $('#Edificio').on('change',function(){
+
+
+
+                $.ajax({
+                    type: 'POST',
+                    url: '<?php echo $this->url(array('controller' => 'staff','action' => 'updateajax'));?>',
+                    data: 'edificio=' + $('#Edificio').val(),
+                    dataType: 'json',
+                    success: setPosizioni
+                });
+
+
+            })
+
+            function setPosizioni(data)
+            {
+                $('#posizione').find('option').remove();
+                $.each(data, function(key,val){
+                    $('#posizione').append('<option value="'+ val +'">'+ val + '</option>')
+
+                })
+            }
+
+
+        })
+    </script>
 </body>
 </html>
 

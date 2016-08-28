@@ -21,4 +21,10 @@ class Application_Resource_Edifici extends Zend_Db_Table_Abstract
         $res = $this->fetchAll($select);
         return $res;
     }
+    public function getedificiobyId($info)
+    {
+        $select = $this->select('nome')->where('id =?', (int)$info);
+        $res = $this->fetchAll($select);
+        return $res;
+    }
 }

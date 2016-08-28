@@ -48,7 +48,7 @@ class Application_Form_Staff_Evento_Aggiungi extends Zend_Form
 			'validators' => array(array('StringLength',true, array(1,25))),
 		));
 		$this->addElement('submit', 'add', array(
-            'label' => 'Aggiungi Prodotto',
+            'label' => 'Aggiungi Evento',
 		));
 
 	}

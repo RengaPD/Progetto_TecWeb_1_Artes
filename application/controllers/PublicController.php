@@ -55,4 +55,11 @@ class PublicController extends Zend_Controller_Action
     }
     public function accessonegatoAction()
     {}
+    public function faqAction()
+    {
+        $result=$this->_publicModel->visualizzafaq()->toArray();
+        $this->view->assign('risultato', $result);
+    }
+
+
 }
